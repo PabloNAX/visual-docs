@@ -1,6 +1,6 @@
 # Visual Docs
 
-[![GitHub stars](https://img.shields.io/github/stars/pv2dev/visual-docs?style=social&cacheSeconds=60&v=2)](https://github.com/pv2dev/visual-docs/stargazers)
+[![GitHub stars](https://img.shields.io/github/stars/PabloNAX/visual-docs?style=social&cacheSeconds=60&v=2)](https://github.com/PabloNAX/visual-docs/stargazers)
 [![License: MIT](https://img.shields.io/badge/license-MIT-0a0a0a.svg)](LICENSE)
 ![Claude skill](https://img.shields.io/badge/Claude-skill-0a0a0a)
 ![Codex skill](https://img.shields.io/badge/Codex-skill-0a0a0a)
@@ -184,10 +184,10 @@ MIT. See [LICENSE](LICENSE).
 
 ## Star History
 
-<a href="https://www.star-history.com/#pv2dev/visual-docs&Date">
+<a href="https://www.star-history.com/#PabloNAX/visual-docs&Date">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=pv2dev/visual-docs&type=Date&theme=dark" />
-    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=pv2dev/visual-docs&type=Date" />
-    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=pv2dev/visual-docs&type=Date" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=PabloNAX/visual-docs&type=Date&theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=PabloNAX/visual-docs&type=Date" />
+    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=PabloNAX/visual-docs&type=Date" />
   </picture>
 </a>
