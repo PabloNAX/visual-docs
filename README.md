@@ -12,6 +12,15 @@ Visual Docs is a portable AI skill for explaining repositories, features, module
 
 ![Visual Docs Focus Map](assets/visual-docs-focus-map-en.png)
 
+## Quick Use
+
+```text
+Install skill.
+Ask: Use visual-docs to explain this repo.
+Open: docs/{feature}/index.html.
+No server. No Python needed.
+```
+
 ## What It Creates
 
 Default output:
