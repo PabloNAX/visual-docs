@@ -184,10 +184,4 @@ MIT. See [LICENSE](LICENSE).
 
 ## Star History
 
-<a href="https://www.star-history.com/#PabloNAX/visual-docs&Date">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=PabloNAX/visual-docs&type=Date&theme=dark" />
-    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=PabloNAX/visual-docs&type=Date" />
-    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=PabloNAX/visual-docs&type=Date" />
-  </picture>
-</a>
+[![Star history chart for PabloNAX/visual-docs](assets/star-history.svg)](https://github.com/PabloNAX/visual-docs/stargazers)
