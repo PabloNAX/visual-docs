@@ -1,8 +1,8 @@
 interface:
   display_name: "Visual Docs"
-  short_description: "Repo explainer as graph JSON and HTML"
-  brand_color: "#E8B94A"
-  default_prompt: "Use $visual-docs to explain this repository with a standalone HTML map."
+  short_description: "Visual Atlas pages with file trees, directed maps, and guided tours"
+  brand_color: "#0A0A0A"
+  default_prompt: "Use $visual-docs to create a Visual Atlas for this repo with a full file tree, directed maps, guided tours, graph.json, and standalone HTML."
 
 policy:
   allow_implicit_invocation: true

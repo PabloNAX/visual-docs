@@ -6,9 +6,11 @@
 ![Codex skill](https://img.shields.io/badge/Codex-skill-0a0a0a)
 ![No server](https://img.shields.io/badge/output-file%3A%2F%2F%20HTML-e8b94a)
 
-Turn any repository into a clean visual explanation: graph JSON first, standalone HTML second.
+Turn any repository into a Visual Atlas: full file tree, directed maps, guided tours, graph JSON, and standalone HTML.
 
-Visual Docs is a portable AI skill for explaining repositories, features, modules, agent systems, prompt stacks, provider routing, business flows, and code pipelines. It starts from the product meaning, then walks down into folders, abstractions, examples, risks, and source evidence.
+Visual Docs is a portable AI skill for explaining repositories, features, modules, agent systems, prompt stacks, provider routing, business flows, code pipelines, and code changes. It starts from the current working directory, builds the real file tree, shows how the system is shaped, draws arrows from inputs to outputs, then walks through real examples anchored to files.
+
+The intended outcome is simple: after five minutes, a new reader should know where the code starts, what folders matter, what calls what, which examples prove the flow, what agent/prompt/tool systems exist, and what to inspect next.
 
 ![Visual Docs Focus Map](assets/visual-docs-focus-map-en.png)
 
@@ -17,7 +19,7 @@ Visual Docs is a portable AI skill for explaining repositories, features, module
 ```text
 Install skill.
 Ask: Use visual-docs to explain this repo.
-Open: docs/{feature}/index.html.
+The skill opens docs/{feature}/index.html automatically.
 No server. No Python needed.
 ```
 
@@ -31,36 +33,62 @@ docs/{feature}/
   index.html
 ```
 
-`graph.json` is the audit/source data for agents. `index.html` embeds the same JSON and opens directly from disk with `file://`. No local server, build tool, CDN, or external assets are required.
+`graph.json` is the audit/source data for agents. `index.html` embeds the same JSON, opens directly from disk with `file://`, and the skill runs `open docs/{feature}/index.html` when done. No local server, build tool, CDN, or external assets are required.
+
+The JSON uses `schemaVersion: "visual-docs.v2"` and includes mode metadata, source scope, full `fileTree`, `startHere`, folder atlas, directional `maps`, guided `tours`, deep `lenses`, examples, next actions, risks, unknowns, and a `quality.checks` self-audit.
 
 ## Page Structure
 
 ```text
-Repo job
-  -> Project I/O
-  -> Domain view
-  -> Focus Map
-  -> Product flows
-  -> System layers
-  -> Repo anatomy
-  -> Abstraction map
-  -> Node explorer
+Start Here
+  -> System Shape
+  -> Full file tree
+  -> Folder atlas
+  -> Context / package / runtime maps
+  -> Guided tours from real examples
+  -> Agent / domain / data / UI lenses when present
+  -> Next actions
+  -> Risks and unknowns
+  -> Explorer
 ```
 
 The generated page includes:
 
 - one plain sentence explaining what the repo does
-- input, process, and output cards
-- domain or business view before code internals
-- clickable Focus Map with side detail
-- product or use-case flows
-- system layers
+- generated copy in the user's language
+- the source root that was analyzed
+- category, audience, similar tools, and key difference
+- full searchable/collapsible file tree with skipped areas named
+- start-here files and one-line main path
+- context, package/container, runtime/change, and subsystem maps
+- directional graphs, rails, tables, or trees with visible verbs on arrows
+- guided tours with 3-7 source-backed steps
+- subsystem maps for agents, prompts, tools, providers, routes, workflows, plugins, or packages when detected
+- agent-system internals: definitions, prompts, tools, lifecycle, handoffs, provider routing, evidence, and unknowns
 - folder structure with responsibilities
-- abstraction map for commands, classes, functions, schemas, stores, and components
+- "what to inspect next" task guidance
+- before/after impact when documenting changes
 - real examples from README, tests, fixtures, or source
 - node explorer with why, callers, dependencies, risk, and evidence
 
 Every major section includes an example. Every factual claim should point back to source evidence. If examples are not found, the output says that and lists where it searched.
+
+## Quality Gate
+
+A good generated page should pass these checks:
+
+- first screen answers category, audience, main job, similar tools or closest category, difference, and source root
+- repo overview includes a full file tree, folder atlas, context map, package/container map, runtime map, and guided tours
+- full file tree includes source root, total file count, skipped areas, role badges, and search/collapse UI
+- directional maps have visible arrow verbs, evidence, and links back to file paths
+- guided tours use real README/test/fixture/demo/command/diff evidence
+- agent/prompt/tool/provider/workflow lens appears when those systems exist, or the page states that none was found and where it searched
+- feature docs identify entry point, owner module, input, output, main path, branches, examples, and config sources
+- change docs identify base ref, changed files by responsibility, before/after behavior, affected contracts, tests, risks, and missing tests
+- every important claim has source evidence or is marked `INFERRED`, `AMBIGUOUS`, unknown, or missing
+- `index.html` embeds the exact `graph.json` inside `id="graph-data"`
+- generated UI is Paperwork-style: monochrome, thin borders, compact diagrams, no pastel/rainbow decoration, no giant radial mind map
+- `quality.checks` records validation status instead of hiding weak spots
 
 ## Skill Folder
 
@@ -132,11 +160,13 @@ Example prompts:
 ```text
 Use visual-docs to explain this repo.
 Use visual-docs to map the payment flow.
+Use visual-docs to explain the latest changes.
+Use visual-docs to explain how this CLI tool works.
 Use visual-docs to document the agent routing system in Spanish.
 Use visual-docs on this repository and make the output in Russian.
 ```
 
-Open the generated file directly:
+The skill opens the generated page automatically. You can also open it directly:
 
 ```text
 docs/{feature}/index.html
@@ -146,13 +176,18 @@ docs/{feature}/index.html
 
 Visual Docs favors structure over decoration:
 
+- Paperwork-style white/gray UI with thin borders
+- direct human writing, not AI-marketing prose
 - no emojis
 - no local server
 - no generated marketing page
 - no giant loose mind map
+- no unlabeled graph edges
+- no cards replacing the required file tree or directional maps
+- no `Golden path` UI labels
 - no fake examples
 - no external assets in generated output
-- compact cards, rails, tables, swimlanes, matrices, and detail drawers
+- compact cards, rails, tables, fixed trees, before/after views, and detail drawers
 - readable spacing and quiet source evidence
 
 ## Compatibility

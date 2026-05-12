@@ -5,4 +5,5 @@ dist/
 build/
 coverage/
 .cache/
+docs/
 *.tmp
